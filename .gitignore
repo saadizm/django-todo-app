@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# If you use collectstatic
+/static/
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Migrations (optional, if you don’t want them in git until stable)
+# Uncomment if you want to ignore initial migration files
+# */migrations/
+# !*/migrations/__init__.py
+
+# Environment variables
+.env
+*.env
+
+# Coverage / testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
