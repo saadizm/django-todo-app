@@ -10,11 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -26,6 +29,12 @@ SECRET_KEY = 'django-insecure-i$js^s)7liqi@4+%4ktoeo&of&fj@g*9^14-0#!18#$re4&^6^
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
+HOST = os.getenv('HOST')
+PORT = os.getenv("PORT")
 
 
 # Application definition
@@ -73,9 +82,18 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DATABASE_NAME,
+        'USER': USER,
+        'PASSWORD': PASSWORD,
+        'HOST': HOST,
+        'PORT': PORT
     }
 }
 
