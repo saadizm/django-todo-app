@@ -3,4 +3,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello world. You are at the Todos application..")
+    context = {'message': "Application allows user to save their todos.."}
+    return render(request, "todo/index.html", context)
