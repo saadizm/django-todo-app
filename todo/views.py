@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from todo.models import Todo
 # Create your views here.
 
 def index(request):
@@ -11,8 +12,13 @@ def add_todo(request):
     return render(request, "todo/add_todo.html", context)
 
 def process_data(request):
+    if request.method == 'POST':
+        todo_title = request.POST.get("title")
+        todo_description = request.POST.get("description")
+        pass
     pass
 
 def list_todos(request):
-    context = {"message": "Your created todos..."}
+    all_todos = Todo.objects.all()
+    context = {"objects": all_todos}
     return render(request, "todo/list_todos.html", context)

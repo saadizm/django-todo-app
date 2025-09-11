@@ -2,7 +2,12 @@
 
 {%block content%}
 
-    <h5> Your Listed todos...</h5>
+    {% if all_todo %}
 
+        <h5> Your Listed todos...</h5>
+    {%else %}
+        <h5>No data to display...</h5>
+    
+    {%endif%}
 
 {% endblock %}
