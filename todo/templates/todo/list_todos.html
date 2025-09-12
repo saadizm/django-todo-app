@@ -2,9 +2,19 @@
 
 {%block content%}
 
-    {% if all_todo %}
-
+    {% if all_todos %}
         <h5> Your Listed todos...</h5>
+        <table>
+            <tr>
+            <th> No# </th> <th> Title </th> <th> Description </th> <th> Is_completed </th> <th> Priority </th>
+            </tr>
+            {% for todo in all_todos %}
+                <tr>
+                    <td>{{todo.id}}</td> <td>{{todo.title|truncatechars:10}}</td> <td>{{todo.description|truncatechars:20}}</td> <td>{{todo.is_completed|yesno:"Completed, Pending"}}</td> <td>{{todo.priority}}</td>
+                </tr>
+            {% endfor %}
+        
+        </table>
     {%else %}
         <h5>No data to display...</h5>
     
