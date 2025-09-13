@@ -1,0 +1,46 @@
+{% extends 'todo/base.html'%}
+
+{%block content%}
+
+<h5> Edit Your Todo...</h5>
+
+{% if todo_object %}
+
+<form action="{% url 'todo:process_edit_todo' todo_object.id%}" method="post">
+
+    {% csrf_token %}
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="{{todo_object.title}}">
+    <br> <br>
+
+    <label for="title">Description</label>
+    <textarea id="description" name="description" rows="5" cols="30" >{{todo_object.description}}</textarea>
+    <br> <br>
+
+    <label for="is_completed">Is completed</label>
+    <input type="radio" name="option_group" value="no" {% if not todo_object.is_completed %} checked {% endif %}> No
+    <input type="radio" name="option_group" value="yes" {% if todo_object.is_completed%} checked {% endif %}> Yes
+    <br> <br>
+    <label for ="dueDate">Due Date:</label>
+    <input type="date" id="dueDate" name="dueDate" value="{{todo_object.due_date|date:'Y-m-d'}}">
+
+    <br> <br>
+    <label for="priority">Select the Priority..</label>
+    <select id="priority" name="priority">
+        <option value="low" {% if todo_object.priority == "low" %} selected {% endif %}>Low</option>
+        <option value="medium" {% if todo_object.priority == "medium" %} selected {% endif %}>Medium</option>
+        <option value="high" {% if todo_object.priority == "high" %} selected {% endif %}>High</option>
+    </select>
+
+    <br> <br>
+    <input type="submit" value="Update">
+    <input type="reset" value="Reset">
+
+</form>
+
+{%else %} 
+
+{%endif%}
+
+{% endblock %}

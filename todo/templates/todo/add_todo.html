@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h5> {{message}}</h5>
+    <h3> {{message}}</h3>
 
     <form action="{% url 'todo:process_data' %}" method="post">
 
@@ -32,8 +32,8 @@
         </select>
 
         <br> <br>
-        <input type="submit" value="Submit" onclick="validate_input()">
-        <input type="reset" value="Reset">
+        <input type="submit" value="Add" class="button-add">
+        <input type="reset" value="Reset" class="button-clear">
 
     </form>
 

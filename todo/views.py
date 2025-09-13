@@ -34,3 +34,25 @@ def list_todos(request):
     all_todos = Todo.objects.all()
     context = {"all_todos": all_todos}
     return render(request, "todo/list_todos.html", context)
+
+def edit_todo(request, id):
+    todo_object = get_object_or_404(Todo, pk=id)
+    return render(request, 'todo/edit_todo.html', {'todo_object': todo_object})
+
+def process_edit_todo(request,id):
+    print("In process edit todo...")
+    todo_object = get_object_or_404(Todo, pk=id)
+    if request.method == "POST":
+        todo_object.title = request.POST.get('title')
+        todo_object.description = request.POST.get("description")
+        todo_object.is_completed = True if request.POST.get("option_group") == "yes" else False
+        todo_object.due_date = request.POST.get("dueDate")
+        todo_object.priority = request.POST.get('priority')
+        todo_object.save()
+    
+    return HttpResponseRedirect(reverse("todo:list_todos"))
+
+def delete_todo(request, id):
+    todo_object = get_object_or_404(Todo, pk=id)
+    todo_object.delete()
+    return HttpResponseRedirect(reverse("todo:list_todos"))

@@ -6,18 +6,23 @@
         <h5> Your Listed todos...</h5>
         <table>
             <tr>
-            <th> No# </th> <th> Title </th> <th> Description </th> <th> Is_completed </th> <th> Priority </th>
+            <th> No# </th> <th> Title </th> <th> Description </th> <th> Is_completed </th> <th> Priority </th> <th colspan="2"> Actions</th>
             </tr>
             {% for todo in all_todos %}
                 <tr>
-                    <td>{{todo.id}}</td> <td>{{todo.title|truncatechars:10}}</td> <td>{{todo.description|truncatechars:20}}</td> <td>{{todo.is_completed|yesno:"Completed, Pending"}}</td> <td>{{todo.priority}}</td>
+                    <td>{{forloop.counter}}</td> <td>{{todo.title|truncatechars:10}}</td> <td>{{todo.description|truncatechars:20}}</td> <td>{{todo.is_completed|yesno:"Completed, Pending"}}</td> 
+                    <td>{{todo.priority}}</td> <td> <a href="{% url 'todo:edit_todo' todo.id %}" class="button-edit"> Edit </a> </td> 
+                    <td> <a href="{% url 'todo:delete_todo' todo.id %}" class="button-delete"> Delete </a></td>
                 </tr>
             {% endfor %}
         
         </table>
     {%else %}
-        <h5>No data to display...</h5>
+        <h3>No data to display...</h3>
     
     {%endif%}
+    <br>
+
+    <a href="{% url 'todo:add_todo' %}" class="button-create">Go Back</a>
 
 {% endblock %}
