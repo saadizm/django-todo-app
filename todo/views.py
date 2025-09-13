@@ -56,3 +56,11 @@ def delete_todo(request, id):
     todo_object = get_object_or_404(Todo, pk=id)
     todo_object.delete()
     return HttpResponseRedirect(reverse("todo:list_todos"))
+
+def filter_todo(request):
+    priority = request.GET.get('filter')
+    if priority and priority!= "None":
+        todo_object = Todo.objects.filter(priority=priority)
+    else:
+        todo_object = Todo.objects.all()
+    return render(request, 'todo/list_todos.html',{"all_todos":todo_object})

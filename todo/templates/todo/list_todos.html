@@ -4,6 +4,17 @@
 
     {% if all_todos %}
         <h5> Your Listed todos...</h5>
+        <form action = "{% url 'todo:filter_todo' %}" method="get">
+        <label for="Filter">Filter Todo By Priority </label>
+        <select id="filter" name="filter">
+            <option value="None" selected>None</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <button type="submit" class="button-apply">Apply</button>
+        </form>
+        <br> <br>
         <table>
             <tr>
             <th> No# </th> <th> Title </th> <th> Description </th> <th> Is_completed </th> <th> Priority </th> <th colspan="2"> Actions</th>

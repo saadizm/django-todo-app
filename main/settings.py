@@ -41,6 +41,7 @@ PORT = os.getenv("PORT")
 
 INSTALLED_APPS = [
     'todo.apps.TodoConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

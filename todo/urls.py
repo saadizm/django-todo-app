@@ -9,6 +9,6 @@ urlpatterns = [
     path("process/", views.process_data, name='process_data'),
     path("edit/<int:id>", views.edit_todo, name="edit_todo"),
     path("delete/<int:id>",views.delete_todo, name="delete_todo"),
-    path("process_edit_todo/<int:id>",views.process_edit_todo,name="process_edit_todo")
-
+    path("process_edit_todo/<int:id>",views.process_edit_todo,name="process_edit_todo"),
+    path("filter/",views.filter_todo,name="filter_todo")
 ]
