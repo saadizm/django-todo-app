@@ -1,0 +1,16 @@
+{% extends "accounts/base.html"%}
+
+{%block content%}
+
+    {% if user %}
+        <h2>Welcome {{user.first_name}} {{user.lastname}}</h2>
+        <h3>Email: {{user.email}}</h3>
+        <h3>UserName: {{user.username}}</h3>
+        <a href="{% url 'accounts:logout'%}"> Logout </a>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'accounts:login'%}">Login</a>
+    {% endif %}
+
+
+{%endblock%}

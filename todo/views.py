@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from todo.models import Todo
 from datetime import datetime
 # Create your views here.
 
+@login_required
 def index(request):
     context = {'message': "Application allows user to save their todos.."}
     return render(request, "todo/index.html", context)
