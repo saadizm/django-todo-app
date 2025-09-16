@@ -1,5 +1,16 @@
 {%extends "todo/base.html"%}
 
+{% load static %}
+
+{%block title%} List Todos. {%endblock%}
+
+
+{% block head %} 
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'todo/list_todo.css' %}">
+{% endblock %}
+
+
 {%block content%}
 
     {% if all_todos %}
@@ -34,6 +45,6 @@
     {%endif%}
     <br>
 
-    <a href="{% url 'todo:add_todo' %}" class="button-create">Go Back</a>
+    <a href="{% url 'todo:index' %}" class="button-create">Go Back</a>
 
 {% endblock %}

@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function(){
 
+    console.log("Document is loaded...")
+
     const form = document.getElementById('todoForm');
     const todoTitle = document.getElementById("title");
     const todoDescription = document.getElementById("description")
+    const todoOptions = document.getElementsByClassName("option_group");
     const title_error = document.getElementById("title-error");
-    const description_error = document.getElementById("description-error")
+    const description_error = document.getElementById("description-error");
+    const option_group_error = document.getElementById("option-group-error");
 
 
     todoTitle.addEventListener('input', function(){
@@ -14,17 +18,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
     todoDescription.addEventListener("input", function(){
         //
+        description_error.classList.remove("description-error");
+        description_error.textContent = "";
 
     });
 
     form.addEventListener("submit", function(event){
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
-        const options = document.getElementsByName("option_group");
-
         
+        console.log("Submitting data...")
 
-        if (title.trim() === ""){
+        if (title.value.trim() === ""){
             event.preventDefault();
             console.log("title is empty..");
             title_error.classList.add("title-error");
@@ -32,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function(){
             return; 
         }
 
-        if (description.trim() === ""){
+        if (description.value.trim() === ""){
             event.preventDefault();
-            console.log("description is empty..")
+            console.log("Description is empty..")
             description_error.classList.add("description-error")
             description_error.textContent = "Description cannot be empty."
     
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
         let isCompeltedSelected = false;
-        for (let option of options){
+        for (let option of todoOptions){
             if (option.checked){
                 isCompelted = true;
                 break;
@@ -51,10 +54,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
         if (!isCompeltedSelected){
             event.preventDefault();
-            alert("Select whether a task is completed or not..");
+            option_group_error.classList.add("option-group-error");
+            option_group_error.textContent = "Select whether a task is completed or not.";
+            console.log("Select whether a task is completed or not.");
+
         }
 
     });
+
+    for (let option of todoOptions){
+        option.addEventListener("change", function(){
+            option_group_error.classList.remove("option-group-error");
+            option_group_error.textContent = "";
+        });
+    }
 
 
 });

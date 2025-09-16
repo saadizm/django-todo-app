@@ -36,52 +36,6 @@
     background-color:mediumturquoise;
 }
 
-.button-edit{
-    background-color: green;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.button-edit:hover{
-    background-color: #4CAf50;
-}
-
-.button-delete{
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.button-delete:hover{
-    background-color: lightpink;
-}
-
-table, th, td {
-    border: 1px solid black;
-  }
-
-td {
-    text-align: center;
-}
-
 .title-error{
     color: red;
     font-size: 0.9rem;
@@ -89,10 +43,18 @@ td {
     display: inline-block;
 }
 
-#description-error {
+.description-error {
     color: red;          /* highlight error text */
     font-size: 0.9rem;   /* slightly smaller than normal text */
     margin-top: 4px;     /* add spacing below the textarea */
     display: inline-block;      /* so it appears on a new line */
     visibility: visible;  /* hidden by default */
+  }
+  
+.option-group-error {
+    color: red;          /* highlight error text */
+    font-size: 0.9rem;   /* slightly smaller than normal text */
+    margin-top: 4px;     /* add spacing below the textarea */
+    display: inline-block;      /* so it appears on a new line */
+    visibility: visible; 
   }
