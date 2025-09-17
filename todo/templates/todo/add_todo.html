@@ -30,18 +30,21 @@
         <label for="is_completed">Is completed</label>
         <input type="radio" id = "optionA" name="option_group" value="no" > No
         <input type="radio" id = "optionB" name="option_group" value="yes"> Yes
-        <span id="option_group_error"></span>
+        <span id="option-group-error"></span>
         <br> <br>
         <label for ="dueDate">Due Date:</label>
-        <input type="date" id="dueDate" name="dueDate" value="2025-12-31">
+        <input type="date" id="dueDate" name="dueDate" placeholder="YYYY-MM-DD">
+        <span id = "due-date-error"></span>
 
         <br> <br>
         <label for="priority">Select the Priority..</label>
         <select id="priority" name="priority">
+            <option value="" disabled selected>Select Priority</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
         </select>
+        <span id = "priority-error"></span>
 
         <br> <br>
         <input type="submit" value="Add" class="button-add">

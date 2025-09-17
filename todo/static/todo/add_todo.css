@@ -58,3 +58,20 @@
     display: inline-block;      /* so it appears on a new line */
     visibility: visible; 
   }
+
+
+    .due-date-error {
+    color: red;          /* highlight error text */
+    font-size: 0.9rem;   /* slightly smaller than normal text */
+    margin-top: 4px;     /* add spacing below the textarea */
+    display: inline-block;      /* so it appears on a new line */
+    visibility: visible; 
+    }
+
+    .priority-error {
+    color: red;          /* highlight error text */
+    font-size: 0.9rem;   /* slightly smaller than normal text */
+    margin-top: 4px;     /* add spacing below the textarea */
+    display: inline-block;      /* so it appears on a new line */
+    visibility: visible; 
+    }

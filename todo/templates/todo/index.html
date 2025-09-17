@@ -9,4 +9,10 @@
     <a href="{% url 'todo:add_todo' %}" class="button-create"> Create Todo. </a> 
     <a href="{% url 'todo:list_todos' %}" class="button-show"> Show Todos. </a>
 
+    <br> <br>
+
+    <a href="{% url 'accounts:logout' %}" class="button-logout" id = "account-logout"> Logout </a>
+
+    <script src="{%static 'todo/index.js' %}"></script>
+
 {% endblock %}
