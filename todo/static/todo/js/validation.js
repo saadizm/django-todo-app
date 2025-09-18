@@ -45,14 +45,12 @@ document.addEventListener("DOMContentLoaded", function(){
             event.preventDefault();
             title_error.classList.add("title-error");
             title_error.textContent = "*Title cannot be empty.";
-            return; 
         }
 
         if (description.value.trim() === ""){
             event.preventDefault();
             description_error.classList.add("description-error")
             description_error.textContent = "Description cannot be empty."
-            return;
         }
 
         let isCompeltedSelected = false;
@@ -81,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function(){
             event.preventDefault();
             priority_error.classList.add("priority-error");
             priority_error.textContent = "Kindly Select Priority Level.";
-
         }
 
     });

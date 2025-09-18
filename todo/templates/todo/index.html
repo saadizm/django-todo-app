@@ -12,7 +12,20 @@
     <br> <br>
 
     <a href="{% url 'accounts:logout' %}" class="button-logout" id = "account-logout"> Logout </a>
+    <a href="{% url 'accounts:profile' %}" class="button-view-profile" > Profile </a>
 
-    <script src="{%static 'todo/index.js' %}"></script>
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <p>You are about to be logged out from the application?</p>
+            <div class="modal-actions">
+                <button id="confirmYes">Yes</button>
+                <button id="confirmNo">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{%static 'todo/js/index.js' %}"></script>
+
+
 
 {% endblock %}

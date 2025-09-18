@@ -1,0 +1,26 @@
+.spinner-border {
+    /* Basic styles for a Bootstrap-like spinner */
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -0.125em;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: .75s linear infinite spinner-border;
+  }
+
+  @keyframes spinner-border {
+    to { transform: rotate(360deg); }
+  }
+
+
+  #loginButton:disabled {
+    background: #7da8e3;
+    cursor: not-allowed;
+  }
+  
+  #loadingSpinner {
+    margin-left: 10px;
+    font-size: 16px;
+  }

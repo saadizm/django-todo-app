@@ -11,6 +11,7 @@ def index(request):
     context = {'message': "Application allows user to save their todos.."}
     return render(request, "todo/index.html", context)
 
+@login_required
 def add_todo(request):
     context = {"message": "Add your todo here.."}
     return render(request, "todo/add_todo.html", context)
@@ -26,6 +27,7 @@ def process_data(request):
         priority = request.POST.get('priority')
         todo_item = Todo(title = todo_title, description = todo_description, is_completed =is_completed,
                          created_at = created_at, updated_at = updated_at, due_date = due_date, priority = priority)
+        todo_item.user = request.user
         todo_item.save()
         return HttpResponseRedirect(reverse("todo:list_todos"))
     else:

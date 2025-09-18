@@ -7,7 +7,7 @@
 
 {% block head %} 
     {{ block.super }}
-    <link rel="stylesheet" href="{% static 'todo/list_todo.css' %}">
+    <link rel="stylesheet" href="{% static 'todo/css/list_todo.css' %}">
 {% endblock %}
 
 
@@ -28,11 +28,11 @@
         <br> <br>
         <table>
             <tr>
-            <th> No# </th> <th> Title </th> <th> Description </th> <th> Is_completed </th> <th> Priority </th> <th colspan="2"> Actions</th>
+            <th> No# </th> <th> Created By </th> <th> Title </th> <th> Description </th> <th> Is_completed </th> <th> Priority </th> <th colspan="2"> Actions</th>
             </tr>
             {% for todo in all_todos %}
                 <tr>
-                    <td>{{forloop.counter}}</td> <td>{{todo.title|truncatechars:10}}</td> <td>{{todo.description|truncatechars:20}}</td> <td>{{todo.is_completed|yesno:"Completed, Pending"}}</td> 
+                    <td>{{forloop.counter}}</td> <td> {{todo.user.username}} </td> <td>{{todo.title|truncatechars:10}}</td> <td>{{todo.description|truncatechars:20}}</td> <td>{{todo.is_completed|yesno:"Completed, Pending"}}</td> 
                     <td>{{todo.priority}}</td> <td> <a href="{% url 'todo:edit_todo' todo.id %}" class="button-edit"> Edit </a> </td> 
                     <td> <a href="{% url 'todo:delete_todo' todo.id %}" class="button-delete"> Delete </a></td>
                 </tr>
@@ -40,13 +40,14 @@
         
         </table>
     {%else %}
-        <h3>No data to display...</h3>
+        <h3> No todos found </h3>
+        <a href="{%url 'todo:add_todo'%}"> Create One.</a>
     
     {%endif%}
     <br>
 
     <a href="{% url 'todo:index' %}" class="button-create">Go Back</a>
 
-    <script src="{% static 'todo/list.js' %}"></script>
+    <script src="{% static 'todo/js/list.js' %}"></script>
 
 {% endblock %}
