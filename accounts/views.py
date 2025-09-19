@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from accounts.forms import RegistrationForm
 # Create your views here.
 
+def index(request):
+    return render(request, 'accounts/index.html')
+
 def register_account(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)

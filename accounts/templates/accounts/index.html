@@ -1,0 +1,30 @@
+{% extends 'accounts/base.html' %}
+
+{% load static %}
+
+{%block title %} {%endblock%}
+
+{%block head%} 
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'accounts/css/index.css' %}">
+{%endblock%}
+
+{%block content%}
+
+<h2>Welcome to Todo </h2>
+<h3>Organize your tasks, stay productive.</h3>
+
+<a href="{%url 'accounts:register' %}" class="button register-btn">Register </a> <a href="{%url 'accounts:login' %}" class="button login-btn"> Login  </a>
+
+<p> Why todo ? </p>
+<ol>
+    <li> Simple & easy to use </li>
+    <li> Track tasks and deadlines </li>
+    <li> Stay on top of your goals</li>
+</ol>
+
+<p> New here ? <a href="{%url 'accounts:register' %}"> Register </a> Now and start managing your todos. </p>
+<p> Already have an account? <a href="{%url 'accounts:login' %}">Login.</a> to continue.</p>
+
+
+{%endblock%}

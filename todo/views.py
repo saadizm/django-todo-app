@@ -35,7 +35,7 @@ def process_data(request):
         
 
 def list_todos(request):
-    all_todos = Todo.objects.all()
+    all_todos = Todo.objects.filter(user = request.user)
     context = {"all_todos": all_todos}
     return render(request, "todo/list_todos.html", context)
 
